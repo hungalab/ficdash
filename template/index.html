@@ -1,0 +1,64 @@
+<!doctype html>
+<!-- Jinja2 -->
+<html>
+	<head>
+        <meta charset="utf-8">
+		<title>Flow-in-Cloud Management Dashboard</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/dashboard.js"></script>
+        <link rel="stylesheet" href="css/default.css">
+	</head>
+	<body>
+		<h2> Flow-in-Cloud Management Dashboard on {{hostname}} </h2> 
+		<img border=0 src="img/hlab.png" width="200px"><br>
+		<b>CAN WE ACCELERATE THE FUTURE ?</b>
+        <hr>
+
+		<!-- Individual boards -->
+		{% for board in boards %}
+        <div class="info_box" id="{{ board }}">
+            <a href="{{ board }}/" class="a_indivisual_board" target='_blank'><h1>{{ board }}</h1></a>
+			<p class="ledText"><span id="{{ board }}-msg"></span></p>
+
+			<h2>Status</h2>
+			PW_OK : <div class="led_green" id="{{ board }}-led_power"></div> /
+			DONE : <div class="led_green" id="{{ board }}-led_done"></div> /
+			CONF : <span id="{{ board }}-bit_file_name"></span> /
+			CONF TIME : <span id="{{ board }}-config_time"></span>
+            <br>
+            <!--<div class="square_btn_blue" id="{{ board }}-btn_reflesh">REFLESH</div>-->
+			<div class="square_btn_orange" id="{{ board }}-btn_fpga_reset" title="Perform resetting FPGA">FPGA RESET</div>
+			<div class="square_btn_orange" id="{{ board }}-btn_hls_reset" title="Invoke HLS module reset command">HLS MODULE RESET</div>
+            <div class="square_btn_orange" id="{{ board }}-btn_hls_start" title="Invoke HLS module start command">HLS MODULE START</div>
+		</div>
+		{% endfor %}
+
+	<!--
+        <div class="info_box" id="fic01">
+            <a href="fic01/" class="a_indivisual_board"><h1 class="h1_board_name"></h1></a>
+            <p class="ledText"><span class="board_message"></span></p>
+
+            <h2>Status</h2>
+			<span id="status_msg"></span>
+			PW_OK : <div class="led_green" id="led_power"></div> /
+			DONE : <div class="led_green" id="led_done"></div> /
+			CONF : <span id="bit_file_name"></span> /
+			CONF TIME : <span id="config_time"></span>
+            <br>
+            <br>
+            <span class="square_btn_blue" id="btn_reflesh">REFLESH</span>
+			<div class="square_btn_orange" id="btn_fpga_reset" title="Perform resetting FPGA">FPGA RESET</div>
+			<div class="square_btn_orange" id="btn_hls_reset" title="Invoke HLS module reset command">HLS MODULE RESET</div>
+            <div class="square_btn_orange" id="btn_hls_start" title="Invoke HLS module start command">HLS MODULE START</div>
+		</div>
+	-->
+
+
+       <!-- <<<< Individual boards >>>> -->
+
+		<div class="center_box">
+			<img border=0 src="img/nyacom.png"> <br>
+			nyacom &copy; 2018
+		</div>
+	</body>
+</html>
