@@ -2,6 +2,8 @@
 
 FiC management dashboard for manage multiple fic boards.
 
+by nyacom 2018.
+
 # Deploy
 
 ## For apache2.4
