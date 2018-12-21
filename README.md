@@ -8,6 +8,7 @@ by nyacom 2018.
 
 ## For apache2.4
 
+* Jinja2 template engine is required
 * Enable mod_proxy and mod_rewrite
 * Configure example like below
 
