@@ -66,6 +66,7 @@ $jq(function($){
 		switch (elem_id) {
 			case 'btn_fpga_reset':
 				fpga_reset(board_id);
+				get_status();
 				break;
 			case 'btn_hls_reset':
 				hls_reset(board_id);
@@ -74,15 +75,6 @@ $jq(function($){
 				hls_start(board_id);
 				break;
 		}
-		//get_status();
-	});
-
-	//-------------------------------------------------------------------------
-	// Reflesh button
-	//-------------------------------------------------------------------------
-	$('#btn_reflesh').on('click', function(e){
-		console.log(e);
-		//get_status();
 	});
 
 	//-------------------------------------------------------------------------
@@ -199,10 +191,10 @@ $jq(function($){
 	}
 
 	//----------------------------------------------------------------------------
-	// Every 10s
+	// Every 60s
 	//----------------------------------------------------------------------------
 	tmr1 = setInterval(function(){
 		get_status();
-	}, 10000);
+	}, 60000);
 });
 
