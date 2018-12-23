@@ -5,7 +5,7 @@
 # FiC management dashboard with jinja2 template engine
 # by nyacom (C) 2018.12
 #------------------------------------------------------------------------------
-BOARDS = ['fic01', 'fic02', 'fic03', 'fic04']
+BOARDS = ['fic08', 'fic07', 'fic06', 'fic05']
 
 #------------------------------------------------------------------------------
 from jinja2 import Template, Environment, FileSystemLoader
