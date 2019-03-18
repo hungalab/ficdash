@@ -7,6 +7,8 @@ $jq(function($){
 	//var boards = ['fic08', 'fic07', 'fic06', 'fic05'];
 	//var boards = ['fic08', 'fic07', 'fic06', 'fic05', 'fic01', 'fic02', 'fic03', 'fic04'];
 	var boards = ['fic08', 'fic07', 'fic06', 'fic05', 'fic01', 'fic02', 'fic03', 'fic04', 'm2fic12', 'm2fic13'];
+	var MAX_PORTS = 4;
+	var MAX_CHANNELS = 16;
 
 	//-------------------------------------------------------------------------
 	// on document ready
@@ -56,6 +58,26 @@ $jq(function($){
 		// Conf message
 		id = '#' + board + '-msg';
 		$(id).text(status['fpga']['memo']);					// FPGA configuration memo
+
+		// Channel linkup
+		for (var i = 0; i < MAX_CHANNELS; i++) {
+			id = '#' + board + '-led_ch' + i;
+			if (status['board']['channel'] & i+1) {
+				$(id).addClass('led_green_on');
+			} else {
+				$(id).removeClass('led_green_on');
+			}
+		}
+
+		// Packet counter
+		for (var i = 0; i < MAX_PORTS; i++) {
+			// Tempolary only for sw0 
+			id = '#' + board + '-sw0_pcc_in' + i;
+			$(id).text(status['board']['packet']['sw0']['in'+i])
+
+			id = '#' + board + '-sw0_pcc_out' + i;
+			$(id).text(status['board']['packet']['sw0']['out'+i])
+		}
 	}
 
 	//-------------------------------------------------------------------------

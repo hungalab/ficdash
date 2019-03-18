@@ -26,6 +26,35 @@
 			DONE : <div class="led_green" id="{{ board }}-led_done"></div> /
 			CONF : <span id="{{ board }}-bit_file_name"></span> /
 			CONF TIME : <span id="{{ board }}-config_time"></span>
+
+
+			<h2>Switch status</h2>
+
+			<h3>Channel link-up:</h3>
+			CH00: <span class="led_green" id="{{ board }}-led_ch0"></span> &nbsp;
+			CH01: <span class="led_green" id="{{ board }}-led_ch1"></span> &nbsp;
+			CH02: <span class="led_green" id="{{ board }}-led_ch2"></span> &nbsp;
+			CH03: <span class="led_green" id="{{ board }}-led_ch3"></span> &nbsp;
+			CH04: <span class="led_green" id="{{ board }}-led_ch4"></span> &nbsp;
+			CH05: <span class="led_green" id="{{ board }}-led_ch5"></span> &nbsp;
+			CH06: <span class="led_green" id="{{ board }}-led_ch6"></span> &nbsp;
+			CH07: <span class="led_green" id="{{ board }}-led_ch7"></span> &nbsp;
+			<br>
+			CH08: <span class="led_green" id="{{ board }}-led_ch8"></span> &nbsp;
+			CH09: <span class="led_green" id="{{ board }}-led_ch9"></span> &nbsp;
+			CH10: <span class="led_green" id="{{ board }}-led_ch10"></span> &nbsp;
+			CH11: <span class="led_green" id="{{ board }}-led_ch11"></span> &nbsp;
+			CH12: <span class="led_green" id="{{ board }}-led_ch12"></span> &nbsp;
+			CH13: <span class="led_green" id="{{ board }}-led_ch13"></span> &nbsp;
+			CH14: <span class="led_green" id="{{ board }}-led_ch14"></span> &nbsp;
+			CH15: <span class="led_green" id="{{ board }}-led_ch15"></span> &nbsp;
+
+			<h3>Packet counter (sw0):</h3>
+			Port0 (I/O): <span id="{{ board }}-sw0_pcc_in0"></span>/<span id="{{ board }}-sw0_pcc_out0"></span><br>
+			Port1 (I/O): <span id="{{ board }}-sw0_pcc_in1"></span>/<span id="{{ board }}-sw0_pcc_out1"></span><br>
+			Port2 (I/O): <span id="{{ board }}-sw0_pcc_in2"></span>/<span id="{{ board }}-sw0_pcc_out2"></span><br>
+			Port3 (I/O): <span id="{{ board }}-sw0_pcc_in3"></span>/<span id="{{ board }}-sw0_pcc_out3"></span><br>
+						
             <br>
             <!--<div class="square_btn_blue" id="{{ board }}-btn_reflesh">REFLESH</div>-->
 			<div class="square_btn_orange" id="{{ board }}-btn_fpga_reset" title="Perform resetting FPGA">FPGA RESET</div>
