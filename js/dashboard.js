@@ -4,7 +4,9 @@
 //-----------------------------------------------------------------------------
 var $jq = $.noConflict(true);
 $jq(function($){
-	var boards = ['fic08', 'fic07', 'fic06', 'fic05'];
+	//var boards = ['fic08', 'fic07', 'fic06', 'fic05'];
+	//var boards = ['fic08', 'fic07', 'fic06', 'fic05', 'fic01', 'fic02', 'fic03', 'fic04'];
+	var boards = ['fic08', 'fic07', 'fic06', 'fic05', 'fic01', 'fic02', 'fic03', 'fic04', 'm2fic12', 'm2fic13'];
 
 	//-------------------------------------------------------------------------
 	// on document ready
