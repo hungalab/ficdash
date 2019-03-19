@@ -6,7 +6,9 @@
 		<title>Flow-in-Cloud Management Dashboard</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/dashboard.js"></script>
-        <link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/default.css">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
 	</head>
 	<body>
 		<h2> Flow-in-Cloud Management Dashboard </h2> 
@@ -25,8 +27,8 @@
 			PW_OK : <div class="led_green" id="{{ board }}-led_power"></div> /
 			DONE : <div class="led_green" id="{{ board }}-led_done"></div> /
 			CONF : <span id="{{ board }}-bit_file_name"></span> /
-			CONF TIME : <span id="{{ board }}-config_time"></span>
-
+			CONF TIME : <span id="{{ board }}-config_time"></span> /
+			BOARD ID : <span id="{{ board }}-board_id"></span>
 
 			<h2>Switch status</h2>
 
@@ -49,11 +51,11 @@
 			CH14: <span class="led_green" id="{{ board }}-led_ch14"></span> &nbsp;
 			CH15: <span class="led_green" id="{{ board }}-led_ch15"></span> &nbsp;
 
-			<h3>Packet counter (sw0):</h3>
-			Port0 (I/O): <span id="{{ board }}-sw0_pcc_in0"></span>/<span id="{{ board }}-sw0_pcc_out0"></span><br>
-			Port1 (I/O): <span id="{{ board }}-sw0_pcc_in1"></span>/<span id="{{ board }}-sw0_pcc_out1"></span><br>
-			Port2 (I/O): <span id="{{ board }}-sw0_pcc_in2"></span>/<span id="{{ board }}-sw0_pcc_out2"></span><br>
-			Port3 (I/O): <span id="{{ board }}-sw0_pcc_in3"></span>/<span id="{{ board }}-sw0_pcc_out3"></span><br>
+			<h3>Packet counter:</h3>
+			Port0 (I/O): <span id="{{ board }}-sw_pcr_in0"></span>/<span id="{{ board }}-sw_pcr_out0"></span><br>
+			Port1 (I/O): <span id="{{ board }}-sw_pcr_in1"></span>/<span id="{{ board }}-sw_pcr_out1"></span><br>
+			Port2 (I/O): <span id="{{ board }}-sw_pcr_in2"></span>/<span id="{{ board }}-sw_pcr_out2"></span><br>
+			Port3 (I/O): <span id="{{ board }}-sw_pcr_in3"></span>/<span id="{{ board }}-sw_pcr_out3"></span><br>
 						
             <br>
             <!--<div class="square_btn_blue" id="{{ board }}-btn_reflesh">REFLESH</div>-->

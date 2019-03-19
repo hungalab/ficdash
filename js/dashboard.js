@@ -59,10 +59,14 @@ $jq(function($){
 		id = '#' + board + '-msg';
 		$(id).text(status['fpga']['memo']);					// FPGA configuration memo
 
+		// Board ID
+		id = '#' + board + '-board_id';
+		$(id).text(status['board']['id']);					// FPGA configuration memo
+
 		// Channel linkup
 		for (var i = 0; i < MAX_CHANNELS; i++) {
 			id = '#' + board + '-led_ch' + i;
-			if (status['board']['channel'] & i+1) {
+			if (status['board']['channel'] & (0x1 << i)) {
 				$(id).addClass('led_green_on');
 			} else {
 				$(id).removeClass('led_green_on');
@@ -71,12 +75,12 @@ $jq(function($){
 
 		// Packet counter
 		for (var i = 0; i < MAX_PORTS; i++) {
-			// Tempolary only for sw0 
-			id = '#' + board + '-sw0_pcc_in' + i;
-			$(id).text(status['board']['packet']['sw0']['in'+i])
+			// Tempolary only for sw
+			id = '#' + board + '-sw_pcr_in' + i;
+			$(id).text(status['board']['pcr']['in'+i])
 
-			id = '#' + board + '-sw0_pcc_out' + i;
-			$(id).text(status['board']['packet']['sw0']['out'+i])
+			id = '#' + board + '-sw_pcr_out' + i;
+			$(id).text(status['board']['pcr']['out'+i])
 		}
 	}
 
