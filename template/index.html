@@ -20,10 +20,17 @@
 
 		{% for board in boards %}
         <div class="info_box" id="{{ board }}">
-            <a href="{{ board }}/" class="a_indivisual_board" target='_blank'><h1>{{ board }}</h1></a>
+			<a href="{{ board }}/" class="a_indivisual_board" target='_blank'><h1>{{ board }}</h1></a>
+
+			<input type="checkbox" id="{{ board }}-chkbox_allow_reflesh" onChange="set_allow_reflesh(this, '{{ board }}');">
+			<label for="{{ board }}-chkbox_allow_reflesh">Allow Autoreflesh</label>
+			<input type="checkbox" id="{{ board }}-chkbox_allow_gpio" onChange="set_allow_gpio(this, '{{ board }}');">
+			<label for="{{ board }}-chkbox_allow_gpio">Allow get_status() access FiC-RPi interface</label>
+	
 			<p class="ledText"><span id="{{ board }}-msg"></span></p>
 
 			<h2>Status</h2>
+
 			PW_OK : <div class="led_green" id="{{ board }}-led_power"></div> /
 			DONE : <div class="led_green" id="{{ board }}-led_done"></div> /
 			CONF : <span id="{{ board }}-bit_file_name"></span> /

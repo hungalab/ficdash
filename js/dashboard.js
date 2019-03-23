@@ -26,12 +26,37 @@ $jq(function($){
 		});
 	}
 
+	function auto_get_status() {
+		boards.forEach(function(board){
+			id = '#' + board + '-chkbox_allow_reflesh';
+			if ($(id).prop('checked', true)) {
+				get_board_status(board);
+			}
+		});
+	}
+
 	//-------------------------------------------------------------------------
 	// Set status to dom
 	//-------------------------------------------------------------------------
 	function set_status(board, status) {
 		var id = '';
 
+		// allow reflesh checkbox
+		id = '#' + board + '-chkbox_allow_reflesh';
+		if (status['config']['auto_reflesh']) {
+			$(id).prop('checked', true);
+		} else {
+			$(id).prop('checked', false);
+		}
+
+		// allow GPIO checkbox
+		id = '#' + board + '-chkbox_allow_gpio';
+		if (status['config']['use_gpio']) {
+			$(id).prop('checked', true);
+		} else {
+			$(id).prop('checked', false);
+		}
+	
 		// Power LED
 		id = '#' + board + '-led_power';
 		if (status['board']['power']) {
@@ -222,7 +247,57 @@ $jq(function($){
 	// Every 60s
 	//----------------------------------------------------------------------------
 	tmr1 = setInterval(function(){
-		get_status();
+		//get_status();
+		auto_get_status();
 	}, 60000);
 });
+
+//----------------------------------------------------------------------------
+function set_allow_reflesh(obj, board) {
+	$jq(function($){
+		var url = board + '/config';
+		var json = {
+			"auto_reflesh": obj.checked
+		};
+		$.ajax({
+			url         : url,
+			type        : 'post',
+			data        : JSON.stringify(json),
+			cache       : false,
+			contentType : 'application/json',
+			dataType    : 'json',
+			timeout     : 10000
+		})
+		.done(function(form_data, textStatus, jqXHR){
+		})
+		.fail(function(jqXHR, textStatus, errorThrown){
+			alert('AJAX failed');
+		});
+	});
+}
+
+//----------------------------------------------------------------------------
+function set_allow_gpio(obj, board) {
+	$jq(function($){
+		var url = board + '/config';
+		var json = {
+			"use_gpio": obj.checked
+		};
+		console.log(url)
+		$.ajax({
+			url         : url,
+			type        : 'post',
+			data        : JSON.stringify(json),
+			cache       : false,
+			contentType : 'application/json',
+			dataType    : 'json',
+			timeout     : 10000
+		})
+		.done(function(form_data, textStatus, jqXHR){
+		})
+		.fail(function(jqXHR, textStatus, errorThrown){
+			alert('AJAX failed');
+		});
+	});
+}
 
