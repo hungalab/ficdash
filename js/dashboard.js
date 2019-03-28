@@ -89,14 +89,25 @@ $jq(function($){
 		$(id).text(status['board']['id']);					// FPGA configuration memo
 
 		// Channel linkup
-		for (var i = 0; i < MAX_CHANNELS; i++) {
-			id = '#' + board + '-led_ch' + i;
-			if (status['board']['channel'] & (0x1 << i)) {
-				$(id).addClass('led_green_on');
-			} else {
+		if (status['board']['channel'] != 0x10000) {
+			for (var i = 0; i < MAX_CHANNELS; i++) {
+				id = '#' + board + '-led_ch' + i;
+				if (status['board']['channel'] & (0x1 << i)) {
+					$(id).removeClass('led_orange_on');
+					$(id).addClass('led_green_on');
+				} else {
+					$(id).removeClass('led_green_on');
+					$(id).addClass('led_orange_on');
+				}
+			}
+		} else {
+			for (var i = 0; i < MAX_CHANNELS; i++) {
+				id = '#' + board + '-led_ch' + i;
+				$(id).removeClass('led_orange_on');
 				$(id).removeClass('led_green_on');
 			}
 		}
+
 
 		// Packet counter
 		for (var i = 0; i < MAX_PORTS; i++) {
